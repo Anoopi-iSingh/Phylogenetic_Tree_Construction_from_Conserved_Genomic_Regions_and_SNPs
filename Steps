@@ -1,0 +1,114 @@
+#Download the Sequence.zip file and extract the sequences from it. there are ten Mycobacterium tuberculosis genome fasta files.
+
+#or 
+
+#Download sequences using accession number in excel file, GENOME_SEQUENCES.xlsx. You can rename the fasta header with short IDs given as in GENOME_SEQUENCES.xlsx (recommended not necessary)
+
+#Install mauve
+sudo apt-get install mauve
+
+#or 
+
+#download from the website http://darlinglab.org/mauve/mauve.html
+
+#Align the sequences using  progressiveMauve
+
+progressiveMauve --output=my_seqs.xmfa <Seq_file1.fasta><Seq_file2.fasta><Seq_file3.fasta><Seq_file4.fasta>
+
+#open my_seqs.xmfa file in Mauve GUI for visualization
+
+#For SNPs analysis
+
+#click on tool -> export -> export SNPs
+
+#open the SNPs file in Libra office Calc or MS Excel select the first column containing SNP patern and copy
+
+#Paste the SNP pattern coloumn in a text file (eg . in gedit) (except the header) and follow the following commands in terminal name 
+
+#it SNP_Process 
+
+#Make a list of organism name in a correct order as in my_seqs.xmfa file, name the file as list.txt
+
+
+sed '/-/' d SNPs> SNP_Process
+
+sed -i 's/./& /g' SNP_Process
+
+sed -i 's/ /\t/g' SNP_Process
+
+#In a new diroctory run the following commands
+
+perl snp_extract.pl list.txt SNP_Process
+
+#You will get multiple .fna files of SNPs for all organisms. You can also use preprocessed SNPs file present in the folder SNPs_File
+
+#Now make a multifasta file
+
+cat *.fna > Multiple_seq.fasta
+
+#For conserved genomic regions
+
+#conseved genomic regions above 200 bp were extracted  (Use following command in the directory containing Mauve output also put the stripSubsetLCBs in the same folder )
+
+./stripSubsetLCBs my_seqs.xmfa  my_seqs.xmfa.bbcols  conserved_genomic_region 200
+
+#To make a multifasta file from the output you can also use  preprocessed file, Conserved_genomic_region.fasta
+
+perl xmfa2fasta.pl conserved_genomic_region
+
+#Phylogenetic tree construction
+
+#install raxmlHPC 
+sudo apt-get install raxmlHPC or download from the website https://sco.h-its.org/exelixis/web/software/raxml/ (version 8 or above)
+
+#For SNPs 
+
+raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMA -s snp_mtbc.fasta  -n SNPs_output -T 4 -f a
+
+#For Conserved genomic regions
+
+raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMAI -s output.fasta  -n Genome -T 10 -f a
+
+#Visualization 
+#install figtree
+
+sudo apt-get install figtree 
+
+#open figtree by typing in command line "figtree"
+
+open best_tree file in the figtree
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
