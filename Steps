@@ -1,3 +1,4 @@
+
 #Download the Sequence.zip file and extract the sequences from it. there are ten Mycobacterium tuberculosis genome fasta files.
 
 #or 
@@ -77,38 +78,3 @@ sudo apt-get install figtree
 #open figtree by typing in command line "figtree"
 
 open best_tree file in the figtree
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
