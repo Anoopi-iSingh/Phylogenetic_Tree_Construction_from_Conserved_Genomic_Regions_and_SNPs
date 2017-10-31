@@ -68,7 +68,7 @@ raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMA -s input.fasta  -n SNPs_output
 
 #For Conserved genomic regions
 
-raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMAI -s output.fasta  -n Genome -T 10 -f a
+raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMAI -s input.fasta  -n Genome -T 10 -f a
 
 #Visualization 
 #install figtree
