@@ -64,7 +64,7 @@ sudo apt-get install raxmlHPC or download from the website https://sco.h-its.org
 
 #For SNPs 
 
-raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMA -s snp_mtbc.fasta  -n SNPs_output -T 4 -f a
+raxmlHPC -x 12345 -p 12345 -# autoMRE -m GTRGAMMA -s input.fasta  -n SNPs_output -T 4 -f a
 
 #For Conserved genomic regions
 
