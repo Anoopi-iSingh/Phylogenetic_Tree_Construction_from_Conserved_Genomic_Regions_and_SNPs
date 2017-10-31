@@ -31,7 +31,7 @@ progressiveMauve --output=my_seqs.xmfa <Seq_file1.fasta><Seq_file2.fasta><Seq_fi
 #Make a list of organism name in a correct order as in my_seqs.xmfa file, name the file as list.txt
 
 
-sed '/-/' d SNP_P > SNP_Process
+sed '/-/'d SNP_P > SNP_Process
 
 sed -i 's/./& /g' SNP_Process
 
